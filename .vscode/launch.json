@@ -1,0 +1,29 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    // debug $GOROOT/src/cmd/go/main.go + `go build -v` command
+    {
+      "name": "debug: go build -v",
+      "type": "go",
+      "request": "launch",
+      // 调试一个现成的二进制文件
+      "mode": "exec",
+      // 指定工作目录（go build 输出的文件会存放到此目录）
+      // cwd 全称: current working directory
+      "cwd": "${workspaceFolder}",
+      // 被调试的 go 命令二进制文件
+      // 此文件来自于前面的构建命令对 `$GOROOT/src/cmd/go` 这个 package 的构建
+      // 请修改为你的二进制文件所在位置（绝对路径或下面格式引用环境变量）
+      // 参考：https://github.com/vikyd/note/blob/master/vscode_goland_debug_go_mod_go_build_go_get.md#vscode-%E8%B0%83%E8%AF%95-go-build-%E7%BC%96%E8%AF%91%E5%99%A8%E6%9C%AC%E8%BA%AB
+      "program": "${env:HOME}/tmp/debuggo/debuggo",
+      // 让更多日志输出 `DEBUG CONSOLE`，调试不成功时便于定位问题
+      "trace": "log",
+      // `go build -v` 命令的参数
+      // 各参数需拆分为多项，而非 `build -v` 写到同一项
+      "args": ["build", "-v"]
+    }
+  ]
+}
