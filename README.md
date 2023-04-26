@@ -20,7 +20,7 @@ replace (
 
 # `go.mod`: After `go run` or `go build`
 
-After running `go run main.go` or `go build -v`, `go.mod`:
+After running `go mod tidy`, `go.mod`:
 
 ```go.mod
 module github.com/vikyd/gomod-replace-pseudo
